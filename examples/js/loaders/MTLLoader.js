@@ -464,7 +464,10 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 
 					if ( n > 0 ) {
 
-						params.opacity = 1 - n;
+						if ( this.options && this.options.equalizeTransparency )
+							params.opacity = value;
+						else
+							params.opacity = 1 - value;
 						params.transparent = true;
 
 					}
